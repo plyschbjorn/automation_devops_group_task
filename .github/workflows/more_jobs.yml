@@ -7,6 +7,8 @@ on:
   schedule:
     - cron: '05, 13 * * 1,2,3'
 
+  workflow_dispatch:
+
 env:
   DAY_OF_WEEK: Monday
   First_Name: Hampus
