@@ -7,6 +7,7 @@ on:
 
 env:
   DAY_OF_WEEK: Monday
+  First_Name: Hampus
 
 jobs:
   greeting_job:
@@ -16,5 +17,8 @@ jobs:
     steps:
       - name: "Say Hello Mona it's Monday"
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: Hampus
+      
+      - name: "I dont like Monday"
+        run: echo "$Greeting, $First_Name dont like $DAY_OF_WEEK!
+
+           
