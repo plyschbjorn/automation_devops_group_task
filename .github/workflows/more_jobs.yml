@@ -16,8 +16,15 @@ env:
   GREETING: Hello 
 
 jobs:
-  test_schedule:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: Print current day
         run: echo "$GREETING $First_Name. Today is $DAY_OF_WEEK"
+ 
+  job2:
+   runs-on: ubuntu-latest
+   steps:
+      - name: Print dont like monday
+        run: echo "$GREETING! $First_Name dont like $DAY_OF_WEEK"
+   needs: job1
