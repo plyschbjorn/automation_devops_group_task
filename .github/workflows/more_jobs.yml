@@ -5,7 +5,7 @@ name: more_jobs
 
 on:
   schedule:
-    - cron: '25 13 * * 1,2,3'
+    - cron: '32 13 * * 1,2,3'
 
   workflow_dispatch:
 
@@ -18,17 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current day
-        run: echo "Today is $(date +'%A')"
-
-      - name: Only run on Monday–Wednesday
-        run: |
-          day=$(date +%u)  # 1=måndag, 2=tisdag, 3=onsdag
-          if [ $day -le 3 ]; then
-            echo "Running on Monday–Wednesday"
-          else
-            echo "Not Monday–Wednesday, skipping"
-            exit 0
-          fi
-
-      - name: Always run
-        run: echo "This step always runs"
+        run: echo "Today is $DAY_OF_WEEK
