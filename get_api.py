@@ -3,7 +3,6 @@ import pandas as pd
 import requests_cache
 from retry_requests import retry
 
-# Setup the Open-Meteo API client with cache and retry
 cache_session = requests_cache.CachedSession('.cache', expire_after=3600)
 retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
 openmeteo = openmeteo_requests.Client(session=retry_session)
@@ -47,6 +46,7 @@ def get_weather_data(lat, lon):
     "temperature_2m_min": 1,
     "rain_sum": 1
 }).rename(columns={
+    "date": "Datum",
     "rain_sum": "Nederbörd (mm)",
     "temperature_2m_max": "Max Temperatur (°C)",
     "temperature_2m_min": "Min Temperatur (°C)"
