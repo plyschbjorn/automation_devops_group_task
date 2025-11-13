@@ -41,7 +41,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p junit
-          pytest tests/test_get_api.py tests/test_dashboard.py | tee junit/pytest-output.txt
+          pytest tests/test_get_api.py tests/test_dashboard.py tests/test_fail.py | tee junit/pytest-output.txt
 
       - name: Upload test log (endast om test misslyckas)
         if: ${{ failure() && github.event_name == 'workflow_dispatch' && github.event.inputs.logging_errors == 'true' }}
